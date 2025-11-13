@@ -105,6 +105,49 @@ npm run lint
 - 修改 `next.config.js` 来自定义 Next.js 配置
 - 在 `src/types/todo.ts` 中添加新的类型定义
 
+## 🌐 部署与环境说明
+
+本项目支持两个独立的 Vercel 部署环境：
+
+### 1）测试环境（Trae → Vercel 部署 A）
+
+- **用途**：由 Trae 直接部署到 Vercel，用于快速预览和测试
+- **访问地址**：`https://traetodo-app-traev188.vercel.app`
+- **使用流程**：
+  1. 使用 Trae 输入 Prompt 修改代码
+  2. 在本地通过 `npm run dev` 查看效果
+  3. 需要线上测试时，通过 Trae 部署到测试环境
+
+### 2）正式生产环境（GitHub → Vercel 部署 B）
+
+- **用途**：通过 GitHub 仓库连接到 Vercel 的生产环境
+- **触发方式**：
+  ```bash
+  git add .
+  git commit -m "feat: 描述修改内容"
+  git push
+  ```
+- **构建流程**：Vercel 自动从 GitHub 拉取代码并构建部署
+- **生产环境地址**：`<在这里填入你的生产 URL，例如 https://your-prod.vercel.app>`
+
+## 🛠 推荐开发流程
+
+1. **使用 Trae 编写 Prompt**，自动修改代码
+2. **本地开发验证**：
+   ```bash
+   npm install   # 首次需要
+   npm run dev   # 启动开发服务器
+   ```
+   访问 http://localhost:3000 查看效果
+3. **线上测试**：通过 Trae 部署到测试环境（部署 A）
+4. **发布正式版本**：
+   ```bash
+   git add -A
+   git commit -m "feat: 新增功能描述"
+   git push
+   ```
+   等待 GitHub → Vercel 完成生产构建（部署 B）
+
 ## 📱 响应式设计
 
 应用采用移动优先的响应式设计，在不同设备上都有良好的用户体验：
